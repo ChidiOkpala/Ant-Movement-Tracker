@@ -1,0 +1,23 @@
+{
+  "name": "decagon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "move-ant-class.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChidiOkpala/Ant-Movement-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChidiOkpala/Ant-Movement-Tracker/issues"
+  },
+  "homepage": "https://github.com/ChidiOkpala/Ant-Movement-Tracker#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
