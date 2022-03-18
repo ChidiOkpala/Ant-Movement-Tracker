@@ -4,25 +4,25 @@ class MoveAnt {
     this.initPosition = initPosition;
     this.createTiles();
     this.moveAnt(initPosition);
-  };
+  }
 
-  checkTopLimit (number) {
+  checkTopLimit(number) {
     return number <= 9;
-  };
+  }
 
-  checkBottomLimit (number) {
+  checkBottomLimit(number) {
     return number >= 90;
-  };
+  }
 
-  checkLeftLimit (number) {
+  checkLeftLimit(number) {
     return number % 10 == 0
-  };
+  }
 
-  checkRightLimit (number) {
+  checkRightLimit(number) {
     return number % 10 == 9
-  };
+  }
 
-  createTiles = () => {
+  createTiles() {
     for (let i = 0; i < 100; i++) {
       const gridContainer = document.getElementById('grid-container');
       const antTile = document.createElement('div');
@@ -32,9 +32,9 @@ class MoveAnt {
   
       gridContainer.append(antTile);
     }
-  };
+  }
 
-  getAntsInstancePossibleDirection = (currentPosition) => {
+  getAntsInstancePossibleDirection(currentPosition) {
     if (this.checkTopLimit(currentPosition) && this.checkLeftLimit(currentPosition)) {
       return [currentPosition + 1, currentPosition + 10]
     }
@@ -62,31 +62,31 @@ class MoveAnt {
     else {
       return [currentPosition + 1, currentPosition - 1, currentPosition - 10, currentPosition + 10]
     }
-  };
+  }
 
-  getNextRandomPosition = (numberArray) => {
+  getNextRandomPosition(numberArray) {
     const randomIndex = Math.floor(Math.random() * numberArray.length);
   
     return numberArray[randomIndex];
-  };
+  }
 
-  addAntToTile = (position) => {
+  addAntToTile(position) {
     const antTile = document.getElementById(position);
   
     const antDiv = document.createElement('div');
     antDiv.classList.add('ant');
   
     antTile.appendChild(antDiv);
-  };
+  }
 
-  removeAntFromTile = (position) => {
+  removeAntFromTile(position) {
     const antTile = document.getElementById(position);
     const antNode = antTile.firstElementChild;
     
     antTile.removeChild(antNode);
-  };
+  }
 
-  moveAnt = (position) => {
+  moveAnt(position) {
     this.addAntToTile(position);
     this.antsTouchedPosition.push(position);
   
@@ -99,16 +99,16 @@ class MoveAnt {
       
       this.moveAnt(nextPosition);
     }, 3000);
-  };
+  }
 
-  mapPreviousTile = () => {
+  mapPreviousTile() {
     for (let i = 0; i < this.antsTouchedPosition.length; i++) {
       const antTile = document.getElementById(this.antsTouchedPosition[i]);
       
       antTile.classList.add('ant-white-tile')
     }
-  };
-};
+  }
+}
 
 const MoveMyAnt = new MoveAnt(45);
 

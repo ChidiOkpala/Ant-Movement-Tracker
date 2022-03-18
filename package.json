@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ChidiOkpala/Ant-Movement-Tracker#readme",
   "devDependencies": {
+    "eslint": "^8.11.0",
     "jest": "^27.5.1"
   }
 }
