@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 
-window.document.body.innerHTML = fs.readFileSync('./grid.html');
+window.document.body.innerHTML = fs.readFileSync('./index.html');
 
 const MoveAnt = require('./moveAntClass.js');
 
