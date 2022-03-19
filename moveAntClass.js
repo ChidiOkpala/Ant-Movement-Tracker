@@ -4,6 +4,35 @@ class MoveAnt {
     this.initPosition = initPosition;
     this.createTiles();
     this.moveAnt(initPosition);
+    this.resetButton = document.getElementById('btn-reset');
+    this.resetRandomButton = document.getElementById('btn-reset-random');
+    this.resetButton.addEventListener('click', () => this.reset());
+    this.resetRandomButton.addEventListener('click', () => this.resetRandom());
+  }
+
+  reset() {
+    this.destroyGrid();
+
+    this.antsTouchedPosition = [];
+    this.createTiles();
+    this.moveAnt(this.initPosition)
+  }
+
+  resetRandom() {
+    this.destroyGrid();
+    const randomPosition = Math.floor(Math.random() * 99);
+
+    this.antsTouchedPosition = [];
+    this.createTiles();
+    this.moveAnt(randomPosition);
+  }
+
+  destroyGrid() {
+    const gridContainer = document.getElementById('grid-container');
+
+    while (gridContainer.lastChild) {
+      gridContainer.removeChild(gridContainer.lastChild)
+    }
   }
 
   checkTopLimit(number) {
@@ -92,20 +121,22 @@ class MoveAnt {
   
     setTimeout(() => {
       this.removeAntFromTile(position);
-      this.mapPreviousTile();
+      this.mapPreviousTile(position);
   
       const possiblePositions = this.getAntsInstancePossibleDirection(position);
       const nextPosition = this.getNextRandomPosition(possiblePositions);
       
       this.moveAnt(nextPosition);
-    }, 3000);
+    }, 1500);
   }
 
-  mapPreviousTile() {
-    for (let i = 0; i < this.antsTouchedPosition.length; i++) {
-      const antTile = document.getElementById(this.antsTouchedPosition[i]);
-      
-      antTile.classList.add('ant-white-tile')
+  mapPreviousTile(position) {
+    const currentPosition = document.getElementById(position)
+    
+    if (currentPosition.classList.contains('ant-white-tile')) {
+      currentPosition.classList.remove('ant-white-tile')
+    } else {
+      currentPosition.classList.add('ant-white-tile')
     }
   }
 }

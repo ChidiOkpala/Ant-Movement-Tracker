@@ -4,6 +4,7 @@
 
 .page-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -36,4 +37,40 @@
 
 .ant-white-tile {
   background-color: aliceblue;
+}
+
+.btn-group {
+  display: flex;
+}
+
+.btn-reset {
+  width: 150px;
+  height: 40px;
+  color: slategrey;
+  background-color: aliceblue;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.btn-reset-random {
+  width: auto;
+  padding: 0 10px;
+}
+
+@media screen and (min-width: 750px) {
+  .grid-container {
+    width: 500px;
+  }
+  
+  .ant-tile {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .ant-tile .ant {
+    width: 20px;
+    height: 20px;
+  }
 }
