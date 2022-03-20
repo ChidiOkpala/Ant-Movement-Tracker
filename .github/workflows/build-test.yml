@@ -1,6 +1,6 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests on version 16.x of node
 
-name: Node.js CI
+name: Ant movement tracker CI
 
 on:
   push:
