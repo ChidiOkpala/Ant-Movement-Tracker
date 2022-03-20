@@ -57,6 +57,7 @@
 .btn-reset-random {
   width: auto;
   padding: 0 10px;
+  margin-right: 0;
 }
 
 @media screen and (min-width: 750px) {

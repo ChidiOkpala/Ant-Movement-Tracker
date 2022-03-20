@@ -2,7 +2,7 @@ class MoveAnt {
   constructor(initPosition) {
     this.antsTouchedPosition = [];
     this.initPosition = initPosition;
-    this.createTiles();
+    this.createGridTiles();
     this.moveAnt(initPosition);
     this.resetButton = document.getElementById('btn-reset');
     this.resetRandomButton = document.getElementById('btn-reset-random');
@@ -11,27 +11,27 @@ class MoveAnt {
   }
 
   reset() {
-    this.destroyGrid();
+    this.destroyGridTiles();
 
     this.antsTouchedPosition = [];
-    this.createTiles();
-    this.moveAnt(this.initPosition)
+    this.createGridTiles();
+    this.moveAnt(this.initPosition);
   }
 
   resetRandom() {
-    this.destroyGrid();
+    this.destroyGridTiles();
     const randomPosition = Math.floor(Math.random() * 99);
 
     this.antsTouchedPosition = [];
-    this.createTiles();
+    this.createGridTiles();
     this.moveAnt(randomPosition);
   }
 
-  destroyGrid() {
+  destroyGridTiles() {
     const gridContainer = document.getElementById('grid-container');
 
     while (gridContainer.lastChild) {
-      gridContainer.removeChild(gridContainer.lastChild)
+      gridContainer.removeChild(gridContainer.lastChild);
     }
   }
 
@@ -51,9 +51,10 @@ class MoveAnt {
     return number % 10 == 9
   }
 
-  createTiles() {
+  createGridTiles() {
+    const gridContainer = document.getElementById('grid-container');
+
     for (let i = 0; i < 100; i++) {
-      const gridContainer = document.getElementById('grid-container');
       const antTile = document.createElement('div');
   
       antTile.classList.add('ant-tile');
@@ -127,7 +128,7 @@ class MoveAnt {
       const nextPosition = this.getNextRandomPosition(possiblePositions);
       
       this.moveAnt(nextPosition);
-    }, 1500);
+    }, 500);
   }
 
   mapPreviousTile(position) {
@@ -141,7 +142,7 @@ class MoveAnt {
   }
 }
 
-const MoveMyAnt = new MoveAnt(45);
+new MoveAnt(45);
 
 module.exports = MoveAnt;
 
