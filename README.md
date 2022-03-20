@@ -1,4 +1,5 @@
 # Ant Movement Tracker
+[![Ant movement tracker CI](https://github.com/ChidiOkpala/Ant-Movement-Tracker/actions/workflows/build-test.yml/badge.svg)](https://github.com/ChidiOkpala/Ant-Movement-Tracker/actions/workflows/build-test.yml)
 
 ### About
 Ant movement tracker is a program that models the movement of an ant in a grid.
@@ -9,6 +10,7 @@ The movement is tracked by the toggling nature of the tiles in the grid signifyi
 - The ant has a default placement at tile 46.
 - The tile color changes when the ant has touched a tile and has moved on to a new position.
 
+### Preview
 ![Visual representation of the ant movement tracker](./ant-movement-tracker.gif)
 
 ## How to start up project
@@ -37,5 +39,5 @@ Deployment is on heroku, the deployment listens for changes to the **master** br
 - On successful running of the CI process, a deployment on heroku is triggered.
 
 ### Extra
-Unit test - Jest Library
-Linting - ESlint
+- Unit test - Jest Library
+- Linting - ESlint
